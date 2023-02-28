@@ -33,8 +33,13 @@ namespace WinFormsApp1
             {
                 string labelText = string.Format("Hora decimal : {0} del dia {1} del mes {2} año {3}:: Mes del año real {4}",
                                             gameTimer.DecimalHour, gameTimer.Days, gameTimer.Months, gameTimer.Years, gameTimer.GetRealMonth()); ;
-
-                
+                bool millIsOn,thiefIsOn;
+                millIsOn = thiefIsOn = false;
+                foreach(ISchedulableObject schedulable in gameTimer.Schedulables) 
+                {
+                    if (schedulable.GetName() == "Mill") millIsOn = schedulable.IsOn;
+                    if (schedulable.GetName() == "Thief") thiefIsOn = schedulable.IsOn;
+                }
 
                 this.Invoke(new Action(() => 
                                 { 
@@ -44,6 +49,22 @@ namespace WinFormsApp1
                                     this.pictureBox1.Image = CalculateImage();
                                     this.pictureBox1.Invalidate();
                                     this.pictureBox1.Update();
+                                    if (millIsOn) 
+                                    {
+                                        lblLumberMill.ForeColor = Color.Green;
+                                    }
+                                    else 
+                                    {
+                                        lblLumberMill.ForeColor = Color.Red;
+                                    }
+                                    if (thiefIsOn) 
+                                    {
+                                        lblThief.ForeColor = Color.Green;
+                                    }
+                                    else 
+                                    {
+                                        lblThief.ForeColor = Color.Red;
+                                    }
                                 }));
                 Thread.Sleep(1000);
             }
@@ -87,10 +108,23 @@ namespace WinFormsApp1
                 int.TryParse(this.txtBoxMonthLapse.Text, out monthLapse);
                 int.TryParse(this.txtBoxYearLapse.Text, out yearLapse);
                 gameTimer = new GameTimer(dayLapse,monthLapse,yearLapse);
+                
+                // Scheduled objects control
+                if (true) 
+                {
+                    PopulateScheduledObjects();
+
+                }
                 gameTimer.StartTimer();
                 refreshingThread = new Thread(new ThreadStart(RefreshScreen));
                 refreshingThread.Start();
             }
+        }
+
+        private void PopulateScheduledObjects()
+        {
+            gameTimer.AddSchedulable(new BussinesClass1("Mill", 8, 19));
+            gameTimer.AddSchedulable(new BussinesClass2("Thiefs", 19, 8));
         }
     }
 }

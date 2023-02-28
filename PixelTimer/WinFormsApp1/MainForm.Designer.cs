@@ -43,6 +43,9 @@ namespace WinFormsApp1
             this.txtBoxMonthLapse = new NumericTextBox();
             this.txtBoxDayLapse = new NumericTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblLumberMill = new System.Windows.Forms.Label();
+            this.lblCourt = new System.Windows.Forms.Label();
+            this.lblThief = new System.Windows.Forms.Label();
             this.grpBxSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -160,11 +163,41 @@ namespace WinFormsApp1
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // lblLumberMill
+            // 
+            this.lblLumberMill.AutoSize = true;
+            this.lblLumberMill.Location = new System.Drawing.Point(397, 273);
+            this.lblLumberMill.Name = "lblLumberMill";
+            this.lblLumberMill.Size = new System.Drawing.Size(68, 15);
+            this.lblLumberMill.TabIndex = 4;
+            this.lblLumberMill.Text = "LumberMill";
+            // 
+            // lblCourt
+            // 
+            this.lblCourt.AutoSize = true;
+            this.lblCourt.Location = new System.Drawing.Point(384, 137);
+            this.lblCourt.Name = "lblCourt";
+            this.lblCourt.Size = new System.Drawing.Size(56, 15);
+            this.lblCourt.TabIndex = 4;
+            this.lblCourt.Text = "Courthall";
+            // 
+            // lblThief
+            // 
+            this.lblThief.AutoSize = true;
+            this.lblThief.Location = new System.Drawing.Point(646, 92);
+            this.lblThief.Name = "lblThief";
+            this.lblThief.Size = new System.Drawing.Size(54, 15);
+            this.lblThief.TabIndex = 4;
+            this.lblThief.Text = "ThiefDen";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 338);
+            this.ClientSize = new System.Drawing.Size(741, 351);
+            this.Controls.Add(this.lblThief);
+            this.Controls.Add(this.lblCourt);
+            this.Controls.Add(this.lblLumberMill);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.grpBxSettings);
             this.Controls.Add(this.lblTimeLapsed);
@@ -195,6 +228,9 @@ namespace WinFormsApp1
         private NumericTextBox txtBoxYearLapse;
         private NumericTextBox txtBoxMonthLapse;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblLumberMill;
+        private System.Windows.Forms.Label lblCourt;
+        private System.Windows.Forms.Label lblThief;
     }
 }
 

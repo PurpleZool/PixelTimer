@@ -22,12 +22,17 @@ namespace Engine
 
         public bool Running { get { return timer.Enabled; } }
 
+
+        private List<ISchedulableObject> schedulables;
+        public List<ISchedulableObject> Schedulables { get { return schedulables; } }
+
         public GameTimer(int dayLapseInSeconds, int monthLapseInDays, int yearLapseInMonths) 
         {
             cicles = new MainCicles(dayLapseInSeconds, monthLapseInDays, yearLapseInMonths);
             timer = new System.Timers.Timer(1000);
             timer.Elapsed += OnSecondChanged;
             timer.AutoReset = true;
+            schedulables = new List<ISchedulableObject>();
         }
 
         public void StartTimer() 
@@ -43,10 +48,15 @@ namespace Engine
         private void OnSecondChanged(Object source,ElapsedEventArgs e) 
         {
 
-             currentDecimalHour = cicles.AddSeconds(1);
+            currentDecimalHour = cicles.AddSeconds(1);
+            CheckBussineses();
         }
 
-
+        private void CheckBussineses() 
+        {
+            int currentHour = GameDateArray()[0];
+            schedulables.Where(x => (x.GetTimes()[0] > currentHour) && (x.GetTimes()[1] < currentHour)).ToList().ForEach(x => x.IsOn = true);
+        }
 
 
         private double GetCurrentDecimalYear() 
@@ -94,5 +104,9 @@ namespace Engine
         }
 
 
+        public void AddSchedulable(ISchedulableObject schedulable) 
+        {
+            this.schedulables.Add(schedulable);
+        }
     }
 }
