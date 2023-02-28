@@ -32,7 +32,7 @@ namespace WinFormsApp1
             while (!setEnd)
             {
                 string labelText = string.Format("Hora decimal : {0} del dia {1} del mes {2} año {3}:: Mes del año real {4}",
-                                            gameTimer.DecimalHour, gameTimer.Days, gameTimer.Months, gameTimer.Years, gameTimer.GetRealMonth()); ;
+                                            gameTimer.DecimalHour, gameTimer.Days, gameTimer.Months, gameTimer.Years, gameTimer.GetRealMonth());
                 bool millIsOn,thiefIsOn;
                 millIsOn = thiefIsOn = false;
                 foreach(ISchedulableObject schedulable in gameTimer.Schedulables) 

@@ -8,7 +8,6 @@ namespace Engine
 {
     public class GameTimer
     {
-
         private MainCicles cicles;
         private System.Timers.Timer timer;
         private double currentDecimalHour;
@@ -17,14 +16,12 @@ namespace Engine
         public int Months { get { return cicles.Months; } }
         public int Years { get { return cicles.Years; } }
         public int TotalSeconds { get { return cicles.TotalSecondsLapsed; } }
-
         public double DecimalHour { get { return currentDecimalHour; } }
-
         public bool Running { get { return timer.Enabled; } }
-
-
         private List<ISchedulableObject> schedulables;
         public List<ISchedulableObject> Schedulables { get { return schedulables; } }
+
+
 
         public GameTimer(int dayLapseInSeconds, int monthLapseInDays, int yearLapseInMonths) 
         {

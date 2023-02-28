@@ -1,8 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <Version>0.0.1</Version>
+    <Description>Compact library to manage ingame datetimes, day night cicles and schedulable objects.</Description>
   </PropertyGroup>
 
 </Project>
