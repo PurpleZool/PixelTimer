@@ -25,4 +25,9 @@ This library contains the necessary components to manage in-game time, as well a
             
 ```            
 
+# v0.0.1 Initial Development
+Added initial basic functionalities for the representation of real-time and in-game time.
 
+* MainCycles object for time control.
+* GameTimer object for calculating time according to the configured time and for controlling timers and objects.
+* ISchedulableObject for managing time-dependent objects.
